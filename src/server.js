@@ -1,7 +1,7 @@
-import { buildServer } from "./app.js";
+import {  buildApp } from "./app.js";
 
 const startServer = async () => {
-	const server = await buildServer();
+	const server = await buildApp();
 
 	try {
 		await server.listen({ port: process.env.PORT || 3000 });
