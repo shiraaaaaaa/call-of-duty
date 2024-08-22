@@ -11,15 +11,17 @@ const swaggerOptions = {
     },
     components: {
       securitySchemes: {
-        basicAuth: {
-          type: 'http',
-          scheme: 'basic',
+        ApiKeyAuth: {
+          type: 'apiKey',
+          in: 'header',
+          name: 'authorization',
+          scheme: 'authorization',
         },
       },
     },
     security: [
       {
-        basicAuth: [],
+        ApiKeyAuth: [],
       },
     ],
   },
