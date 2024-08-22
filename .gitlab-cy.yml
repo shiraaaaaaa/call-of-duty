@@ -1,0 +1,30 @@
+image: node:latest
+
+services:
+  - mongo:latest
+
+variables:
+  MONGO_URI: "mongodb://mongo:27017"
+
+stages:
+  - setup
+  - test
+
+cache:
+  paths:
+    - node_modules/
+
+install_dependencies:
+  stage: setup
+  script:
+    - npm ci
+
+lint:
+  stage: test
+  script: npm run lint
+
+test:
+  stage: test
+  script:
+    - npm test --run --coverage
+  coverage: '/All files\s+\|\s+\d+\.\d+\s+\|\s+\d+\.\d+\s+\|\s+\d+\.\d+\s+\|\s+(\d+\.\d+)\s+.*/'

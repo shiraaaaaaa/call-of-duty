@@ -1,0 +1,30 @@
+{
+	"name": "call-off-duty",
+	"version": "1.0.0",
+	"main": "index.js",
+	"scripts": {
+		"test": "vitest --config ./vitest.config.js",
+		"dev": "node --env-file=.env src/index.js --watch | pino-pretty",
+		"check-A": "biome check . --write",
+		"check": "biome check .",
+		"coverage": "vitest --ui --coverage",
+		"spell": "cspell . --config ./cspell.json"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"type": "module",
+	"dependencies": {
+		"fastify": "^4.28.1",
+		"mongodb": "6.7",
+		"node-cron": "^3.0.3"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.8.3",
+		"@vitest/coverage-v8": "^2.0.2",
+		"@vitest/ui": "^2.0.2",
+		"dotenv": "^16.4.5",
+		"pino-pretty": "^11.2.1",
+		"vitest": "^2.0.2"
+	}
+}
