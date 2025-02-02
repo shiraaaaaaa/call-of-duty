@@ -16,10 +16,8 @@ const dutyRoutes = async (fastify, options) => {
   await fastify.get('/', getDutiesByQueryOpts);
   await fastify.get('/:id', getDutyOpts);
   await fastify.delete('/:id', deleteDutyOpts);
-  await fastify.patch('/:id', updateDutyOpts);
-  await fastify.put('/:id/constraints', updateConstraintsOpts);
-  await fastify.put('/:id/schedule', scheduledDutyOpts);
-  await fastify.put('/:id/cancel', cancelDutyOpts);
+  await fastify.put('/:id', updateDutyOpts);
+  await fastify.patch('/:id/cancel', cancelDutyOpts);
 };
 
 export default dutyRoutes;

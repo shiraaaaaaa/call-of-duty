@@ -6,25 +6,6 @@ import { SoldierRes } from "./Soldier.js";
 
 const getJusticeBoardOpts = {
 	schema: {
-		response: {
-			200: {
-				type: "object",
-				additionalProperties: false,
-				properties: {
-					justiceBoard: {
-						type: "array",
-						items: {
-							type: "object",
-							additionalProperties: false,
-							properties: {
-								_id: { type: "string" },
-								score: { type: "number" },
-							},
-						},
-					},
-				},
-			},
-		},
 	},
 
 	handler: getJusticeBoard,
@@ -38,15 +19,6 @@ const getSoldierScoreOpts = {
 			additionalProperties: false,
 			properties: {
 				id: SoldierRes.properties._id,
-			},
-		},
-		response: {
-			200: {
-				type: "object",
-				additionalProperties: false,
-				properties: {
-					score: { type: "number" },
-				},
 			},
 		},
 	},

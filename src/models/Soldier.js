@@ -71,10 +71,7 @@ const getRankValueByName = (value) => {
 const postSoliderOpts = {
 	schema: {
 		body: {
-			...SoldierReq,
-		},
-		response: {
-			201: SoldierRes,
+			...SoldierReq
 		},
 	},
 	handler: addSoldier,
@@ -129,10 +126,7 @@ const deleteSoldierOpts = {
 
 const updateSoliderOpts = {
 	schema: {
-		body: SoldierReq,
-		response: {
-			200: SoldierRes,
-		},
+		body: { ...SoldierReq, required: [] }
 	},
 	handler: patchSoldier,
 };
@@ -146,11 +140,7 @@ const updateLimitationsOpts = {
 				limitations: SoldierReq.properties.limitations,
 			},
 		},
-		response: {
-			200: SoldierRes,
-		},
 	},
-
 	handler: updateLimitations,
 };
 

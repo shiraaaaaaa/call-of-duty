@@ -9,6 +9,7 @@ import {
 	updateDuty,
 } from "../controllers/duty.js";
 import { SoldierRes } from "./Soldier.js";
+
 const dutyRequest = {
 	type: "object",
 	required: [
@@ -80,9 +81,6 @@ const postDutyOpts = {
 		body: {
 			...dutyRequest,
 		},
-		response: {
-			201: dutyResult,
-		},
 	},
 	handler: addDuty,
 };
@@ -142,9 +140,6 @@ const updateDutyOpts = {
 				soldiers: dutyResult.properties.soldiers,
 			},
 		},
-		response: {
-			200: dutyResult,
-		},
 	},
 
 	handler: updateDuty,
@@ -158,9 +153,6 @@ const updateConstraintsOpts = {
 			properties: {
 				constraints: dutyRequest.properties.constraints,
 			},
-		},
-		response: {
-			200: dutyResult,
 		},
 	},
 
@@ -176,9 +168,6 @@ const scheduledDutyOpts = {
 			properties: {
 				id: dutyResult.properties._id,
 			},
-		},
-		response: {
-			200: dutyResult,
 		},
 	},
 

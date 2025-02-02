@@ -42,23 +42,24 @@ const postSoldier = async (soldierToAdd) => {
 };
 
 const updateSoldier = async (id, soldierToUpdate) => {
-	let { _id, ...soldier } = soldierToUpdate;
+	const { _id, ...soldier } = soldierToUpdate;
 
-	soldier = {
-		...soldier,
-		updatedAt: new Date(),
-		limitations: soldierToUpdate.limitations.map((limit) =>
+	if (soldierToUpdate.limitations) {
+		soldier.limitations = soldierToUpdate.limitations.map((limit) =>
 			limit.toLowerCase(),
-		),
-		rank: {
+		);
+	}
+
+	if (soldierToUpdate.rank && (soldierToUpdate.rank.name || soldierToUpdate.rank.value)) {
+		soldier.rank = {
 			name:
 				soldierToUpdate.rank.name ||
 				rankNameByValue[soldierToUpdate.rank.value],
 			value:
 				soldierToUpdate.rank.value ??
 				getRankValueByName(soldierToUpdate.rank.name),
-		},
-	};
+		};
+	}
 
 	return await updateSoldierById(id, soldier);
 };
